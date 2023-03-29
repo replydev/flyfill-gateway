@@ -1,7 +1,8 @@
-package org.flyfill.graphql;
+package org.flyfill.dto;
 
 import lombok.Builder;
 import lombok.Value;
+import lombok.extern.jackson.Jacksonized;
 
 /**
  * Request from the client to be sent to the subscribed browser extension
@@ -12,7 +13,13 @@ import lombok.Value;
  */
 @Value
 @Builder
-public class PasswordFillRequest {
+@Jacksonized
+public class PasswordFillRequestDTO {
+
+    /**
+     * Session id
+     */
+    String sessionId;
 
     /**
      * Username encrypted with browser extension public key

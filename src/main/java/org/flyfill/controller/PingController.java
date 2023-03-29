@@ -1,4 +1,4 @@
-package org.flyfill;
+package org.flyfill.controller;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
