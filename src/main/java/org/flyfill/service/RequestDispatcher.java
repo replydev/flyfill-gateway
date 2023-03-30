@@ -29,12 +29,12 @@ public class RequestDispatcher {
 
     /**
      * Map of web socket extensions where
-     * 
+     * <p>
      * - The key is the random generated id from the browser extension
      * - The value is the Websocket session object
      * 
      */
-    Map<String, Session> sessions = new ConcurrentHashMap<>();
+    final Map<String, Session> sessions = new ConcurrentHashMap<>();
 
     /**
      * Get Websocket session by id
@@ -48,12 +48,12 @@ public class RequestDispatcher {
 
     public void openSession(@NonNull String id, Session session) {
         sessions.put(id, session);
-        log.trace("Session opened", id);
+        log.trace("Session opened: {}", id);
     }
 
     public void closeSession(@NonNull String id) {
         sessions.remove(id);
-        log.trace("Session closed", id);
+        log.trace("Session closed: {}", id);
     }
 
     public void dispatchRequest(PasswordFillRequestDTO passwordFillRequestDTO) throws JsonProcessingException {

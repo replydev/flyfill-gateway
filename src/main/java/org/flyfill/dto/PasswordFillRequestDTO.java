@@ -8,7 +8,7 @@ import lombok.extern.jackson.Jacksonized;
  * Request from the client to be sent to the subscribed browser extension
  * which contains encrypted username and password, with the extension public
  * key.
- * 
+ * <p>
  * The gateway should know nothing about the data in transit.
  */
 @Value
