@@ -15,6 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
+import org.flyfill.exception.SessionNotFoundException;
 
 /**
  * Store websocket sessions with browser extensions and dispatch password fill
@@ -43,7 +44,7 @@ public class RequestDispatcher {
      * @return The Websocket session object
      */
     public Session getSession(String id) {
-        return Optional.ofNullable(sessions.get(id)).orElseThrow();
+        return Optional.ofNullable(sessions.get(id)).orElseThrow(() -> new SessionNotFoundException(id));
     }
 
     public void openSession(@NonNull String id, Session session) {
