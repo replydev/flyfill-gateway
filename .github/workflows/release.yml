@@ -47,11 +47,13 @@ jobs:
       - name: "Download native artifact"
         uses: actions/download-artifact@v3
         with:
+          path: target/
           name: native_artifact
 
       - name: "Download micro Dockerfile"
         uses: actions/download-artifact@v3
         with:
+          path: src/main/docker/
           name: micro_dockerfile
 
       - name: Log in to the Container registry
