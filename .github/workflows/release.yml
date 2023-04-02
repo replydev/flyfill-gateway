@@ -9,8 +9,6 @@ env:
 jobs:
   build_native_artifact:
     name: "Build native artifact using GraalVM"
-    # Trigger this job only on merged PRs and not on possibile raw commits on main
-    if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
